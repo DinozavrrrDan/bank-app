@@ -3,8 +3,8 @@ package com.bankapp.enteties.response;
 public class JwtResponse {
 
     private final String type = "Bearer";
-    private String accessToken;
-    private String refreshToken;
+    private final String accessToken;
+    private final String refreshToken;
 
     public JwtResponse(String accessToken, String refreshToken) {
         this.accessToken = accessToken;

@@ -14,4 +14,6 @@ public interface AuthService {
     JwtResponse refresh(@NonNull String refreshToken) throws AuthException;
 
     JwtAuthentication getAuthInfo();
+
+
 }
