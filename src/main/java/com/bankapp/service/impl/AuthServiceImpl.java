@@ -8,6 +8,7 @@ import com.bankapp.enteties.response.JwtResponse;
 import com.bankapp.service.AuthService;
 import com.bankapp.service.AccountService;
 import jakarta.security.auth.message.AuthException;
+import lombok.NonNull;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -45,7 +46,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public JwtResponse getAccessToken(String refreshToken) throws AuthException {
+    public JwtResponse getAccessToken(@NonNull String refreshToken) throws AuthException {
         if (jwtProvider.validateRefreshToken(refreshToken)) {
             final Claims claims = jwtProvider.getRefreshClaims(refreshToken);
             final String login = claims.getSubject();
