@@ -7,5 +7,5 @@ import java.util.List;
 public interface IncomeService {
     Income saveIncome(Income income);
     void deleteIncome(String id);
-    List<Income> getAllIncomes();
+    List<Income> getAllIncomes(Long userId);
 }

@@ -29,7 +29,8 @@ public class IncomeController {
 
     @GetMapping("income")
     public ResponseEntity<List<Income>> getIncomes() {
-        return new ResponseEntity<>(incomeService.getAllIncomes(), HttpStatus.OK);
+        Account account = accountService.findByLogin(authService.getAuthInfo().getPrincipal().toString());
+        return new ResponseEntity<>(incomeService.getAllIncomes(account.getId()), HttpStatus.OK);
     }
 
     @PostMapping("income")

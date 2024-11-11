@@ -29,7 +29,8 @@ public class ExpenseController {
 
     @GetMapping("expense")
     public ResponseEntity<List<Expense>> getExpenses() {
-        return new ResponseEntity<>(expenseService.getAllExpenses(), HttpStatus.OK);
+        Account account = accountService.findByLogin(authService.getAuthInfo().getPrincipal().toString());
+        return new ResponseEntity<>(expenseService.getAllExpenses(account.getId()), HttpStatus.OK);
     }
 
     @PostMapping("expense")
