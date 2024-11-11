@@ -28,7 +28,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public List<Expense> getAllExpenses() {
-        return expenseRepository.findAll();
+    public List<Expense> getAllExpenses(Long userId) {
+        return expenseRepository.findAllByUserId(userId);
     }
 }

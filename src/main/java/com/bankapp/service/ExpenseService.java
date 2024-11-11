@@ -8,5 +8,5 @@ import java.util.List;
 public interface ExpenseService {
     Expense saveExpense(Expense expense);
     void deleteExpense(String id);
-    List<Expense> getAllExpenses();
+    List<Expense> getAllExpenses(Long userId);
 }
