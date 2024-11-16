@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "expenses")
-public class Expense {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,13 +18,12 @@ public class Expense {
     private Long userId;
 
     private String description;
-    private BigDecimal amount;
 
     @Column(name = "date_added")
     private LocalDate dateAdded;
 
-    @Column(name = "category_id")
-    private Long categoryId;
+    @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Expense> expenses;
 
     public Long getId() {
         return id;
@@ -49,14 +49,6 @@ public class Expense {
         this.description = description;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
     public LocalDate getDateAdded() {
         return dateAdded;
     }
@@ -65,11 +57,11 @@ public class Expense {
         this.dateAdded = dateAdded;
     }
 
-    public Long getCategoryId() {
-        return categoryId;
+    public List<Expense> getExpenses() {
+        return expenses;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 }
