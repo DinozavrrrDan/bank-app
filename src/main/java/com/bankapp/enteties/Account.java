@@ -20,6 +20,8 @@ public class Account {
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Expense> expenses;
 
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Category> categories;
 
     public Account(String login, String password, String roles) {
         this.login = login;
@@ -53,6 +55,14 @@ public class Account {
 
     public void setExpenses(List<Expense> expenses) {
         this.expenses = expenses;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public String getLogin() {
