@@ -22,7 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(String id) {
-        categoryRepository.deleteById(Long.getLong(id));
+        categoryRepository.deleteById(Long.valueOf(id));
     }
 
     @Override

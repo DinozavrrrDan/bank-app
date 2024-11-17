@@ -9,5 +9,5 @@ public interface AccountService {
     Optional<Account> getByLogin(@NonNull String login);
     Account createAccount(Account account);
     Account findByLogin(String login);
-
+    void deleteAccount(String id);
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @Service
 public class AccountServiceImpl implements AccountService {
 
@@ -35,8 +37,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account findByLogin(String login) {
-        return accountRepository.findByLogin(login).orElseThrow(
+        return accountRepository.findByLogin(login).orElseThrow();
+    }
 
-        );
+    @Override
+    public void deleteAccount(String id) {
+        accountRepository.deleteById(Long.valueOf(id));
     }
 }

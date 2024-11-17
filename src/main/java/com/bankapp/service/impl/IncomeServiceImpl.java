@@ -23,7 +23,7 @@ public class IncomeServiceImpl implements IncomeService {
 
     @Override
     public void deleteIncome(String id) {
-        incomeRepository.deleteById(Long.getLong(id));
+        incomeRepository.deleteById(Long.valueOf(id));
     }
 
     @Override
