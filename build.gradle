@@ -33,6 +33,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     runtimeOnly 'org.postgresql:postgresql'
+
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
@@ -40,6 +41,8 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
 
     implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+
+    implementation("org.slf4j:slf4j-api:2.0.16")
 }
 
 tasks.named('test') {

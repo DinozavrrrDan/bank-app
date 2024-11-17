@@ -26,7 +26,7 @@ public class CategoryController {
         this.authService = authService;
     }
 
-    @GetMapping("category")
+    @GetMapping("categories")
     public ResponseEntity<List<Category>> getCategories() {
         Account account = accountService.findByLogin(authService.getAuthInfo().getPrincipal().toString());
         return new ResponseEntity<>(categoryService.getAllCategories(account.getId()), HttpStatus.OK);

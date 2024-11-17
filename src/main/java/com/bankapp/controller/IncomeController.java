@@ -27,7 +27,7 @@ public class IncomeController {
         this.authService = authService;
     }
 
-    @GetMapping("income")
+    @GetMapping("incomes")
     public ResponseEntity<List<Income>> getIncomes() {
         Account account = accountService.findByLogin(authService.getAuthInfo().getPrincipal().toString());
         return new ResponseEntity<>(incomeService.getAllIncomes(account.getId()), HttpStatus.OK);

@@ -27,7 +27,7 @@ public class ExpenseController {
         this.authService = authService;
     }
 
-    @GetMapping("expense")
+    @GetMapping("expenses")
     public ResponseEntity<List<Expense>> getExpenses() {
         Account account = accountService.findByLogin(authService.getAuthInfo().getPrincipal().toString());
         return new ResponseEntity<>(expenseService.getAllExpenses(account.getId()), HttpStatus.OK);
