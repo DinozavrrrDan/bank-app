@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @Service
 public class AccountServiceImpl implements AccountService {
 
