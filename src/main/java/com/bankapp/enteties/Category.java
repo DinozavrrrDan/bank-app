@@ -45,8 +45,9 @@ public class Category {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Category setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public LocalDate getDateAdded() {
