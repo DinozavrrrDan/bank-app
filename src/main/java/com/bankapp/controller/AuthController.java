@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -23,30 +23,25 @@ public class AuthController {
         this.authService = authService;
         this.accountService = accountService;
     }
-    @CrossOrigin
     @PostMapping("account/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest authRequest) throws AuthException {
         final JwtResponse token = authService.login(authRequest);
         return ResponseEntity.ok(token);
     }
-    @CrossOrigin
     @PostMapping("account/token")
     public ResponseEntity<JwtResponse> getNewAccessToken(@RequestBody RefreshJwtRequest request) throws AuthException {
         final JwtResponse token = authService.getAccessToken(request.getRefreshToken());
         return ResponseEntity.ok(token);
     }
-    @CrossOrigin
     @PostMapping("account/refresh")
     public ResponseEntity<JwtResponse> getNewRefreshToken(@RequestBody RefreshJwtRequest request) throws AuthException {
         final JwtResponse token = authService.refresh(request.getRefreshToken());
         return ResponseEntity.ok(token);
     }
-    @CrossOrigin
     @PostMapping("account/auth")
     public ResponseEntity<?> createAccount(@RequestBody Account account) {
         return new ResponseEntity<>(accountService.createAccount(account), HttpStatus.CREATED);
     }
-    @CrossOrigin
     @DeleteMapping("account/{id}")
     public ResponseEntity<?> deleteAccount(@PathVariable String id) {
         accountService.deleteAccount(id);
