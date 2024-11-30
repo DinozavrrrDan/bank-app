@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api")
 public class CategoryController {
 
