@@ -31,5 +31,17 @@ CREATE TABLE IF NOT EXISTS expenses
     category_id INT REFERENCES categories(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS goals
+(
+    id SERIAL PRIMARY KEY,
+    user_id  INT  REFERENCES user_accounts(id) ON DELETE CASCADE,
+    description VARCHAR,
+    goal_amount DECIMAL(30, 2),
+    current_amount DECIMAL(30, 2),
+    date_added DATE,
+    date_end DATE
+);
+
+
 
 
